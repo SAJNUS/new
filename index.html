@@ -4,63 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Simple Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
-        .button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Simple Website</h1>
-        <p>This is a simple HTML page with some basic styling. It includes:</p>
-        <ul>
-            <li>A responsive layout</li>
-            <li>Clean typography</li>
-            <li>A simple color scheme</li>
-            <li>Basic CSS styling</li>
-        </ul>
-        <p>You can customize this page by editing the HTML content and CSS styles above.</p>
-        <button class="button" onclick="alert('Hello! This is a simple JavaScript alert.')">Click Me!</button>
+<body>
+    <div class="container fade-in">
+        <nav class="nav">
+            <a href="#home" class="nav-item">Home</a>
+            <a href="#about" class="nav-item">About</a>
+            <a href="#services" class="nav-item">Services</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </nav>
+
+        <h1>Welcome to My Beautiful Website</h1>
+        
+        <p>This is a modern, responsive website with <span class="highlight">beautiful CSS styling</span>. The design features gradient backgrounds, smooth animations, and interactive elements.</p>
+
+        <h2>Features</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Responsive Design</h3>
+                <p>Works perfectly on all devices</p>
+            </div>
+            <div class="grid-item">
+                <h3>Modern Styling</h3>
+                <p>Beautiful gradients and animations</p>
+            </div>
+            <div class="grid-item">
+                <h3>Clean Code</h3>
+                <p>Well-organized and maintainable</p>
+            </div>
+        </div>
+
+        <div class="card slide-in">
+            <h3>About This Project</h3>
+            <p>This website demonstrates modern CSS techniques including:</p>
+            <ul>
+                <li>CSS Grid and Flexbox layouts</li>
+                <li>Gradient backgrounds and text effects</li>
+                <li>Smooth transitions and hover effects</li>
+                <li>Responsive design principles</li>
+                <li>CSS animations and transforms</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Get Started</h3>
+            <p>Ready to explore? Click the buttons below to see the interactive features in action.</p>
+            <button class="button" onclick="showMessage('Primary')">Primary Button</button>
+            <button class="button button-secondary" onclick="showMessage('Secondary')">Secondary Button</button>
+        </div>
+
+        <div class="card">
+            <h3>Contact Form Example</h3>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" rows="4" placeholder="Enter your message"></textarea>
+            </div>
+            <button class="button" onclick="submitForm()">Send Message</button>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 My Beautiful Website. Designed with modern CSS techniques.</p>
+        </div>
     </div>
 
     <script>
-        // Simple JavaScript to make the page interactive
+        // Enhanced JavaScript functionality
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded successfully!');
+            console.log('Modern website loaded successfully!');
+            
+            // Add smooth scrolling to navigation links
+            const navLinks = document.querySelectorAll('.nav-item');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Navigation clicked:', this.textContent);
+                });
+            });
+            
+            // Add entrance animations
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 200);
+            });
         });
+
+        function showMessage(buttonType) {
+            alert(`You clicked the ${buttonType} button! This demonstrates the interactive CSS styling.`);
+        }
+
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                alert(`Thank you, ${name}! Your message has been received. (This is just a demo)`);
+                // Clear form
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
     </script>
 </body>
 </html>
